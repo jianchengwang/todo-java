@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h2>Todo Gradle</h2>
+
+id: <input id="id" type="number" /><br/>
+name: <input id="name" type="text" /><br/>
+
+<button onclick="doIt(1)">查询</button>
+<button onclick="doIt(2)">添加</button>
+<button onclick="doIt(3)">移除</button>
+
+
+</body>
+
+<script>
+    function doIt(flag) {
+
+        var requestUrl = "/"
+        var parms = "?id=" + document.getElementById("id").value + "&name=" + document.getElementById("name").value
+        var method;
+        switch (flag) {
+            case 1: default:
+
+                method = 'all.do'
+                parms = ''
+                break;
+
+            case 2:
+
+                method = 'add.do'
+                break;
+
+            case 3:
+
+                method = 'remove.do'
+                break;
+        }
+
+        window.open(requestUrl + method + parms);
+    }
+</script>
+
+</html>

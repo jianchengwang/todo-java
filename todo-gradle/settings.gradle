@@ -1,0 +1,5 @@
+rootProject.name = 'todo-gradle'
+include 'model'
+include 'dao'
+include 'web'
+
