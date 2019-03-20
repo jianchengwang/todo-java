@@ -1,4 +1,6 @@
 package cn.jianchengwang.todo.java8.lamb;
 
-public class HelloWorld {
+public class LambdaScope {
+
+
 }
