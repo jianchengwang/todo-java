@@ -1,5 +1,6 @@
 package cn.jianchengwang.todo.java8.lambda;
 
+// 函数接口的默认方法
 public class DefaultMethodForInterface {
 
     interface Formula {

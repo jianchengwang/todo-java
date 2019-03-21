@@ -3,6 +3,7 @@ package cn.jianchengwang.todo.java8.lambda;
 import javax.swing.*;
 import java.util.*;
 
+// lambda 表达式
 public class LambdaExpression {
 
     public static void main(String[] args) {

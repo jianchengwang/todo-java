@@ -1,5 +1,6 @@
 package cn.jianchengwang.todo.java8.lambda;
 
+// lambda 的作用域
 public class LambdaScope {
 
     public static void main(String[] args) {

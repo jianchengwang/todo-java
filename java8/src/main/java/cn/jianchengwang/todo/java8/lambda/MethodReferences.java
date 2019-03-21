@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+// 方法引用
 public class MethodReferences {
 
     // 方法引用其实就是lambada 的 eta-conversion 就是 x->f(x) 可以简写为 f
