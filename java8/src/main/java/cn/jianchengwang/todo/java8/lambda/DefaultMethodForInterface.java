@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.java8.lamb;
+package cn.jianchengwang.todo.java8.lambda;
 
 public class DefaultMethodForInterface {
 
