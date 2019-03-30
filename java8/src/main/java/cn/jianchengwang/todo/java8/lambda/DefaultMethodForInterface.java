@@ -10,6 +10,9 @@ public class DefaultMethodForInterface {
         default double sqrt(int a) {
             return Math.sqrt(a);
         }
+
+        // 也可以有静态方法
+        static void hello() { System.out.println("hello world");}
     }
 
     public static void main(String[] args) {

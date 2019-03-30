@@ -14,6 +14,11 @@ public class FunctionInterfaceExample {
             System.out.println("hello world");
         }
 
+        // 静态方法也是允许的，可以少写工具类
+        static void fourWork() {
+            System.out.println("today is a nice day");
+        }
+
         // 如果接口声明一个抽象方法覆盖java.lang.Object 的一个公共方法，这也不计入接口的抽象方法计数，因为该接口的任何实现都有一个来自java.lang.Object 的实现。
         @Override
         public String toString();                //Overridden from Object class

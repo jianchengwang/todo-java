@@ -1,6 +1,7 @@
 package cn.jianchengwang.todo.java8.streams;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -37,7 +38,7 @@ public class StreamOperation {
 
     // 中间流返回流本身
 
-    // Filter accepts a predicate to filter all elements of the stream.
+    // 过滤，Filter accepts a predicate to filter all elements of the stream.
     public static void testFilter(List<String> memberNames) {
 
         memberNames.stream().filter((s) -> s.startsWith("A"))
@@ -45,14 +46,28 @@ public class StreamOperation {
 
     }
 
-    // The intermediate operation map converts each element into another object via the given function.
+    // 函数原型为Stream<T> distinct()，作用是返回一个去除重复元素之后的Stream。
+    public static void testDistinct() {
+        Stream<String> stream= Stream.of("I", "love", "you", "too", "too");
+        stream.distinct().forEach(str -> System.out.println(str));
+    }
+
+    // 映射，The intermediate operation map converts each element into another object via the given function.
     public static void testMap(List<String> memberNames) {
         memberNames.stream().filter((s) -> s.startsWith("A"))
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
     }
 
-    // Sorted is an intermediate operation which returns a sorted view of the stream.
+    // 将原stream的元素P摊平后组成新的stream
+    public static void testFlatMap() {
+        Stream<List<Integer>> stream = Stream.of(Arrays.asList(1,2), Arrays.asList(3, 4, 5));
+        stream.flatMap(list -> list.stream())
+                .forEach(i -> System.out.println(i));
+    }
+
+
+    // 排序，Sorted is an intermediate operation which returns a sorted view of the stream.
     // The elements are sorted in natural order unless you pass a custom Comparator.
     public static void testSorted(List<String> memberNames) {
         memberNames.stream().sorted()
@@ -63,14 +78,14 @@ public class StreamOperation {
 
     // 终端流返回特定类型的结果
 
-    // This method helps in iterating over all elements of a stream and perform some operation on each of them.
+    // 遍历，This method helps in iterating over all elements of a stream and perform some operation on each of them.
     // The operation is passed as lambda expression parameter.
     public static void testForEach(List<String> memberNames) {
         memberNames.forEach(System.out::println);
     }
 
 
-    // collect() method used to recieve elements from a sream and store them in a collection and metioned in parameter funcion.
+    // 收集产生结果集，collect() method used to recieve elements from a sream and store them in a collection and metioned in parameter funcion.
     public static void testCollect(List<String> memberNames) {
         List<String> memNamesInUppercase = memberNames.stream().sorted()
                 .map(String::toUpperCase)
@@ -99,7 +114,7 @@ public class StreamOperation {
 
     }
 
-    // Count is a terminal operation returning the number of elements in the stream as a long.
+    // 统计数量，Count is a terminal operation returning the number of elements in the stream as a long.
     public static void testCount(List<String> memberNames) {
         long totalMatched = memberNames.stream()
                 .filter((s) -> s.startsWith("A"))
@@ -108,7 +123,7 @@ public class StreamOperation {
         System.out.println(totalMatched);
     }
 
-    // This terminal operation performs a reduction on the elements of the stream with the given function.
+    // 缩减，This terminal operation performs a reduction on the elements of the stream with the given function.
     // The result is an Optional holding the reduced value.
     public static void testReduce(List<String> memberNames) {
         Optional<String> reduced = memberNames.stream()
