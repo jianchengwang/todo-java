@@ -1,11 +1,11 @@
-package cn.jianchengwang.todo.java8.optional;
+package cn.jianchengwang.todo.java8.misc;
 
 import lombok.Data;
 
 import java.util.Optional;
 
 // Java .util. optional 可以有效的防止 NullPointerException，一般在返回值可以为空的时候建议使用
-public class OptionalExample {
+public class Optional1 {
 
     @Data
     static class Company {
