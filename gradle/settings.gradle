@@ -1,4 +1,4 @@
-rootProject.name = 'todo-gradle'
+rootProject.name = 'gradle'
 include 'model'
 include 'dao'
 include 'web'
