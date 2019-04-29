@@ -1,5 +1,6 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.netty;
 
+import cn.jianchengwang.todo.lib.netty.todo.web.server.action.param.ParamMap;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.QueryStringDecoder;
@@ -27,17 +28,17 @@ public class RequestParser {
      * 解析请求参数
      * @return 包含所有请求参数的键值对, 如果没有参数, 则返回空Map
      */
-    public Map<String, String> parse() throws Exception {
+    public ParamMap parse() throws Exception {
         HttpMethod method = fullReq.method();
 
-        Map<String, String> parmMap = new HashMap<>();
+        ParamMap paramMap = new ParamMap();
 
         if (HttpMethod.GET == method) {
             // 是GET请求
             QueryStringDecoder decoder = new QueryStringDecoder(fullReq.uri());
             decoder.parameters().entrySet().forEach( entry -> {
                 // entry.getValue()是一个List, 只取第一个元素
-                parmMap.put(entry.getKey(), entry.getValue().get(0));
+                paramMap.put(entry.getKey(), entry.getValue().get(0));
             });
         } else if (HttpMethod.POST == method) {
             // 是POST请求
@@ -49,7 +50,7 @@ public class RequestParser {
             for (InterfaceHttpData parm : parmList) {
 
                 Attribute data = (Attribute) parm;
-                parmMap.put(data.getName(), data.getValue());
+                paramMap.put(data.getName(), data.getValue());
             }
 
         } else {
@@ -57,6 +58,6 @@ public class RequestParser {
             throw new Exception(""); // 这是个自定义的异常, 可删掉这一行
         }
 
-        return parmMap;
+        return paramMap;
     }
 }

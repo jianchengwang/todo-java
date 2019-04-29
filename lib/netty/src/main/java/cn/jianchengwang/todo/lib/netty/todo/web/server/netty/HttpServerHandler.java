@@ -1,5 +1,8 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.netty;
 
+import cn.jianchengwang.todo.lib.netty.todo.web.server.action.IWorkAction;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.action.param.ParamMap;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.route.Route;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
@@ -16,22 +19,49 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
-    private static final byte[] SUCCESS = { 'O', 'k' };
+    private static final byte[] SUCCESS = { 'S', 'U', 'C', 'C', 'E', 'S', 'S' };
+    private static final byte[] NOTFOUND = { 'N', 'O', 'T', 'F', 'O', 'U', 'N', 'D' };
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) throws Exception {
+
+        byte[] responseMsg = SUCCESS;
 
         System.out.println("uri:" + msg.uri());
         System.out.println("method:" + msg.method().name());
         System.out.println("headers:");msg.headers().forEach(h -> System.out.println(h));
 
         System.out.println("params:");
-        Map<String, String> paramMap = new RequestParser(msg).parse(); // 将GET, POST所有请求参数转换成Map对象
+        ParamMap paramMap = new RequestParser(msg).parse(); // 将GET, POST所有请求参数转换成Map对象
         paramMap.forEach((k, v) -> {
             System.out.println(k + ":" + v);
         });
 
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(SUCCESS));
+
+        String uri = msg.uri();
+        if(uri.indexOf(".do") != -1) {
+            uri = uri.substring(0, msg.uri().indexOf(".do"));
+
+            if(uri.indexOf("/") == 0) {
+                uri = uri.substring(1, uri.length());
+            }
+
+            if(HttpServer.routeMap.containsKey(uri)) {
+
+                Route route = HttpServer.routeMap.get(uri);
+
+                IWorkAction workAction = route.getWorkAction().newInstance();
+                workAction.execute(paramMap);
+
+            } else {
+                responseMsg = NOTFOUND;
+            }
+
+        } else {
+            responseMsg = NOTFOUND;
+        }
+
+        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(responseMsg));
         response.headers().set(CONTENT_TYPE, "text/plain");
         response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
 

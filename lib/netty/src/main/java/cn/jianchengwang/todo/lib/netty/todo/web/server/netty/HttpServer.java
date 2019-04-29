@@ -1,5 +1,7 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.netty;
 
+import cn.jianchengwang.todo.lib.netty.todo.web.server.bootstrap.InitBootstrap;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.route.Route;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
@@ -8,13 +10,34 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import lombok.Data;
 
+import java.util.Map;
+
+@Data
 public class HttpServer {
 
-    private Integer port = 8989;
+    private Integer port = 8080;
+    private InitBootstrap initBootstrap;
+    public static Map<String, Route> routeMap;
+
+    public HttpServer() {
+
+    }
 
     public HttpServer(int port) {
         this.port = port;
+    }
+
+    public HttpServer boot(InitBootstrap initBootstrap) {
+
+        this.initBootstrap = initBootstrap;
+
+        this.initBootstrap.init();
+
+        HttpServer.routeMap = this.initBootstrap.getRouteMap();
+
+        return this;
     }
 
     public void start() throws Exception {
