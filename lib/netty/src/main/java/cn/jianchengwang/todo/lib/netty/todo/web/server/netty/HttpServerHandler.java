@@ -1,19 +1,19 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.netty;
 
+import cn.jianchengwang.todo.lib.netty.todo.web.server.Const;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.action.IWorkAction;
-import cn.jianchengwang.todo.lib.netty.todo.web.server.action.param.ParamMap;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.param.ParamMap;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper.Rp;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper.Rq;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.WebContext;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.route.Route;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
 
-import java.awt.*;
-import java.util.Map;
-
 import static io.netty.handler.codec.http.HttpHeaderNames.*;
 import static io.netty.handler.codec.http.HttpHeaderNames.CONNECTION;
 import static io.netty.handler.codec.http.HttpHeaderValues.CLOSE;
-import static io.netty.handler.codec.http.HttpHeaderValues.KEEP_ALIVE;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
@@ -31,12 +31,10 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpReque
         System.out.println("method:" + msg.method().name());
         System.out.println("headers:");msg.headers().forEach(h -> System.out.println(h));
 
-        System.out.println("params:");
-        ParamMap paramMap = new RequestParser(msg).parse(); // 将GET, POST所有请求参数转换成Map对象
-        paramMap.forEach((k, v) -> {
-            System.out.println(k + ":" + v);
-        });
-
+        WebContext.init(
+            new Rq(msg),
+            new Rp()
+        );
 
         String uri = msg.uri();
         if(uri.indexOf(".do") != -1) {
@@ -46,12 +44,12 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpReque
                 uri = uri.substring(1, uri.length());
             }
 
-            if(HttpServer.routeMap.containsKey(uri)) {
+            if(Const.ROUTE_MAP.containsKey(uri)) {
 
-                Route route = HttpServer.routeMap.get(uri);
+                Route route = Const.ROUTE_MAP.get(uri);
 
                 IWorkAction workAction = route.getWorkAction().newInstance();
-                workAction.execute(paramMap);
+                workAction.execute(WebContext.me());
 
             } else {
                 responseMsg = NOTFOUND;

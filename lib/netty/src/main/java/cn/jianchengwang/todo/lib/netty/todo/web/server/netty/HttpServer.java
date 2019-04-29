@@ -19,7 +19,6 @@ public class HttpServer {
 
     private Integer port = 8080;
     private InitBootstrap initBootstrap;
-    public static Map<String, Route> routeMap;
 
     public HttpServer() {
 
@@ -35,7 +34,7 @@ public class HttpServer {
 
         this.initBootstrap.init();
 
-        HttpServer.routeMap = this.initBootstrap.getRouteMap();
+
 
         return this;
     }

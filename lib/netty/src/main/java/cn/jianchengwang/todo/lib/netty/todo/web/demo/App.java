@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.lib.netty.todo.web.server;
+package cn.jianchengwang.todo.lib.netty.todo.web.demo;
 
 import cn.jianchengwang.todo.lib.netty.todo.web.server.bootstrap.InitBootstrap;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.netty.HttpServer;

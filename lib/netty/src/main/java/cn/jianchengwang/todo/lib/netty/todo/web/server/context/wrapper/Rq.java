@@ -1,34 +1,30 @@
-package cn.jianchengwang.todo.lib.netty.todo.web.server.netty;
+package cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper;
 
-import cn.jianchengwang.todo.lib.netty.todo.web.server.action.param.ParamMap;
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.param.ParamMap;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.handler.codec.http.multipart.Attribute;
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
 import io.netty.handler.codec.http.multipart.InterfaceHttpData;
+import lombok.Data;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class RequestParser {
+@Data
+public class Rq {
 
     private FullHttpRequest fullReq;
+    private ParamMap paramMap;
 
-    /**
-     * 构造一个解析器
-     * @param req
-     */
-    public RequestParser(FullHttpRequest req) {
-        this.fullReq = req;
+    public Rq(FullHttpRequest fullReq) throws Exception {
+        this.fullReq = fullReq;
+
+        buildParamMap();
     }
 
-    /**
-     * 解析请求参数
-     * @return 包含所有请求参数的键值对, 如果没有参数, 则返回空Map
-     */
-    public ParamMap parse() throws Exception {
+    private void buildParamMap() throws Exception {
+
         HttpMethod method = fullReq.method();
 
         ParamMap paramMap = new ParamMap();
@@ -58,6 +54,7 @@ public class RequestParser {
             throw new Exception(""); // 这是个自定义的异常, 可删掉这一行
         }
 
-        return paramMap;
+        this.paramMap = paramMap;
     }
+
 }
