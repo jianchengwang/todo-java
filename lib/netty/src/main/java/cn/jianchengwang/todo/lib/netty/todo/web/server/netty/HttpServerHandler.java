@@ -7,15 +7,8 @@ import cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper.Rp;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper.Rq;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.context.WebContext;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.route.Route;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
-
-import static io.netty.handler.codec.http.HttpHeaderNames.*;
-import static io.netty.handler.codec.http.HttpHeaderNames.CONNECTION;
-import static io.netty.handler.codec.http.HttpHeaderValues.CLOSE;
-import static io.netty.handler.codec.http.HttpResponseStatus.OK;
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
@@ -52,21 +45,14 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpReque
                 workAction.execute(WebContext.me());
 
             } else {
-                responseMsg = NOTFOUND;
+                WebContext.me().getRp().error("NOTFOUND");
             }
 
         } else {
-            responseMsg = NOTFOUND;
+            WebContext.me().getRp().error("NOTFOUND");
         }
 
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(responseMsg));
-        response.headers().set(CONTENT_TYPE, "text/plain");
-        response.headers().setInt(CONTENT_LENGTH, response.content().readableBytes());
-
-        // Tell the client we're going to close connection
-        response.headers().set(CONNECTION, CLOSE);
-
-        ChannelFuture f = ctx.writeAndFlush(response);
+        ChannelFuture f = ctx.writeAndFlush(WebContext.me().getRp().getRaw());
         f.addListener(ChannelFutureListener.CLOSE);
 
     }

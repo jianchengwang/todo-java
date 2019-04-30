@@ -1,8 +1,6 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.context.param;
 
-import java.util.Map;
-
-public interface IParam extends Map<String, Object> {
+public interface IParam {
 
     /**
      * get String

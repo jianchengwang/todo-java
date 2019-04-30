@@ -29,7 +29,7 @@ public class InitBootstrap {
 
                     Action action = (Action) clazz.getAnnotation(Action.class);
                     String uri = action.value().length()==0?clazz.getSimpleName():action.value();
-                    Const.routeMap.put(uri, new Route(uri, clazz, null));
+                    Const.ROUTE_MAP.put(uri, new Route(uri, clazz, null));
                 }
 
             } catch (ClassNotFoundException e) {

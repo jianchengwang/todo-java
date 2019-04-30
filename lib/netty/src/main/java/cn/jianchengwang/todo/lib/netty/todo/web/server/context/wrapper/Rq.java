@@ -1,5 +1,6 @@
 package cn.jianchengwang.todo.lib.netty.todo.web.server.context.wrapper;
 
+import cn.jianchengwang.todo.lib.netty.todo.web.server.context.param.IParam;
 import cn.jianchengwang.todo.lib.netty.todo.web.server.context.param.ParamMap;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
@@ -9,10 +10,13 @@ import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
 import io.netty.handler.codec.http.multipart.InterfaceHttpData;
 import lombok.Data;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-public class Rq {
+public class Rq implements IParam {
 
     private FullHttpRequest fullReq;
     private ParamMap paramMap;
@@ -57,4 +61,76 @@ public class Rq {
         this.paramMap = paramMap;
     }
 
+    private <T> T buildClassInstance(Class<T> clazz) throws Exception {
+
+        T instance = clazz.newInstance();
+
+        Field[] fields = clazz.getDeclaredFields();
+
+        for(Field field: fields) {
+
+            Class fieldClass = field.getDeclaringClass();
+            String fieldName = field.getName();
+
+            if(paramMap.containsKey(fieldName)) {
+
+                Method method;
+                try {
+                    method = clazz.getMethod("set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1), fieldClass);
+                } catch (Exception e) {
+                    continue;
+                }
+
+                if(fieldClass == String.class) {
+                    method.invoke(instance, paramMap.getString(fieldName));
+                } else if(fieldClass == Boolean.class) {
+                    method.invoke(instance, paramMap.getBoolean(fieldName));
+                } else if(fieldClass == Integer.class) {
+                    method.invoke(instance, paramMap.getInteger(fieldName));
+                } else if(fieldClass == Long.class) {
+                    method.invoke(instance, paramMap.getLong(fieldName));
+                } else if(fieldClass == Double.class) {
+                    method.invoke(instance, paramMap.getDouble(fieldName));
+                } else if(fieldClass == Float.class) {
+                    method.invoke(instance, paramMap.getFloat(fieldName));
+                } else {
+                    method.invoke(instance, paramMap.get(fieldName));
+                }
+
+            }
+        }
+
+        return instance;
+
+    }
+
+    @Override
+    public String getString(String param) {
+        return this.paramMap.getString(param);
+    }
+
+    @Override
+    public Integer getInteger(String param) {
+        return this.paramMap.getInteger(param);
+    }
+
+    @Override
+    public Long getLong(String param) {
+        return this.paramMap.getLong(param);
+    }
+
+    @Override
+    public Double getDouble(String param) {
+        return this.paramMap.getDouble(param);
+    }
+
+    @Override
+    public Float getFloat(String param) {
+        return this.paramMap.getFloat(param);
+    }
+
+    @Override
+    public Boolean getBoolean(String param) {
+        return this.paramMap.getBoolean(param);
+    }
 }
