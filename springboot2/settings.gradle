@@ -3,4 +3,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'todo.springboot2'
+rootProject.name = 'springboot2'
