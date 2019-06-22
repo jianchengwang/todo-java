@@ -23,13 +23,35 @@ configurations {
 }
 
 repositories {
+	maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+	maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
 	mavenCentral()
 }
 
+def springBootVersion = '2.1.6.RELEASE'
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.5.RELEASE'
+
+	// thymeleaf template
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: "$springBootVersion"
+
+	// jdbc
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "$springBootVersion"
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
+
+	// redis
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: "$springBootVersion"
+	implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.2'
+
+	// amqp
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: "$springBootVersion"
+
+	// email
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: "$springBootVersion"
+
+	// actuator
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "$springBootVersion"
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
