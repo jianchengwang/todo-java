@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.springboot2.hello.controller;
+package cn.jianchengwang.todo.springboot2.hello.web.servlet;
 
 
 import cn.jianchengwang.todo.springboot2.hello.dao.UserRepository;

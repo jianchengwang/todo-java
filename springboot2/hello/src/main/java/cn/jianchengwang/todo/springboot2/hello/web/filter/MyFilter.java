@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.springboot2.hello.filter;
+package cn.jianchengwang.todo.springboot2.hello.web.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

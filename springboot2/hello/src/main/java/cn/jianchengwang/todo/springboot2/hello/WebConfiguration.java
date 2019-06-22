@@ -1,6 +1,6 @@
 package cn.jianchengwang.todo.springboot2.hello;
 
-import cn.jianchengwang.todo.springboot2.hello.filter.MyFilter;
+import cn.jianchengwang.todo.springboot2.hello.web.filter.MyFilter;
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
