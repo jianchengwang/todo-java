@@ -7,8 +7,8 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>cn.jianchengwang.todo.springcloud</groupId>
-        <artifactId>alibaba</artifactId>
+        <groupId>cn.jianchengwang.todo.springcloud.alibaba</groupId>
+        <artifactId>alibaba-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -25,6 +25,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>cn.jianchengwang.todo.springcloud.alibaba</groupId>
+            <artifactId>nacos-provider-feign</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

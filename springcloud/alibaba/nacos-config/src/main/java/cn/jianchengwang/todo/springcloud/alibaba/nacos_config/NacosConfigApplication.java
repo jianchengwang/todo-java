@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.springcloud.nacos.config;
+package cn.jianchengwang.todo.springcloud.alibaba.nacos_config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

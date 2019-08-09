@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.springcloud.nacos.config.controller;
+package cn.jianchengwang.todo.springcloud.alibaba.nacos_config.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

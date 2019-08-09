@@ -1,4 +1,4 @@
-package cn.jianchengwnag.todo.springcloud.nacos.provider.controller;
+package cn.jianchengwnag.todo.springcloud.alibaba.nacos_provider.controller;
 
 import org.springframework.web.bind.annotation.*;
 

@@ -1,9 +1,11 @@
-package cn.jianchengwang.todo.springcloud.nacos.consumer.controller;
+package cn.jianchengwang.todo.springcloud.alibaba.nacos_consumer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.Resource;
 
 @RestController
 public class EchoController {
@@ -30,12 +32,12 @@ public class EchoController {
         return restTemplate.getForObject(url, String.class);
     }
 
-    @Autowired
-    ProviderFeign providerFeign;
-
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello(@RequestParam String name) {
-        return providerFeign.hello(name);
-    }
+//    @Resource
+//    EchoFeign echoFeign;
+//
+//    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+//    public String hello(@RequestParam String name) {
+//        return echoFeign.hello(name);
+//    }
 
 }

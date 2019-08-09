@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.jianchengwang.todo.springcloud</groupId>
-    <artifactId>alibaba</artifactId>
+    <groupId>cn.jianchengwang.todo.springcloud.alibaba</groupId>
+    <artifactId>alibaba-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -33,6 +33,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
@@ -55,37 +60,21 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>spring-snapshot</id>-->
-    <!--<name>Spring Snapshot Repository</name>-->
-    <!--<url>https://repo.spring.io/snapshot</url>-->
-    <!--<snapshots>-->
-    <!--<enabled>true</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--</repositories>-->
-
     <modules>
         <module>nacos-config</module>
         <module>nacos-provider</module>
         <module>nacos-consumer</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

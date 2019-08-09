@@ -1,4 +1,4 @@
-package cn.jianchengwnag.todo.springcloud.nacos.provider;
+package cn.jianchengwnag.todo.springcloud.alibaba.nacos_provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
