@@ -4,9 +4,16 @@ allprojects {
 
     sourceCompatibility = 1.8
     sourceCompatibility = 1.8
+
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
 }
 
 subprojects {
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
 
     repositories {
         mavenLocal()
