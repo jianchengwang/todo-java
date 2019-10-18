@@ -36,7 +36,7 @@ public class ProcessTool {
 
     public static Deployment buildDeployment(RepositoryService repositoryService) {
         Deployment deployment = repositoryService.createDeployment()
-                .addClasspathResource("process/holiday-request.bpmn20.xml")
+                .addClasspathResource("processes/holiday-request.bpmn20.xml")
                 .deploy();
 
         // 简单查询实例

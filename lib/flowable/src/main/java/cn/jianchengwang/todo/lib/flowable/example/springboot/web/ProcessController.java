@@ -21,7 +21,7 @@ import java.util.List;
  * Created by wjc on 2019/10/18
  **/
 @Controller
-@RequestMapping("process")
+@RequestMapping("processes")
 public class ProcessController {
 
     @Autowired
