@@ -1,23 +1,18 @@
-package cn.jianchengwang.to.lib.flowable.example.holiday.controller;
+package cn.jianchengwang.todo.lib.flowable.example.simple.console;
 
-import cn.jianchengwang.to.lib.flowable.example.holiday.Holiday;
-import cn.jianchengwang.to.lib.flowable.example.holiday.ProcessTool;
+import cn.jianchengwang.todo.lib.flowable.example.entity.Holiday;
+import cn.jianchengwang.todo.lib.flowable.example.simple.ProcessTool;
 import org.flowable.engine.ProcessEngine;
-import org.flowable.engine.RepositoryService;
-import org.flowable.engine.TaskService;
-import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.runtime.ProcessInstance;
-import org.flowable.task.api.Task;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
  * Created by wjc on 2019/10/17
  **/
-public class HolidayApply {
+public class HolidayRequest {
 
     private static Scanner scanner= new Scanner(System.in);
 
