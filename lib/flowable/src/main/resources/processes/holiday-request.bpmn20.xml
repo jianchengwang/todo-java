@@ -35,14 +35,14 @@
         </sequenceFlow>
 
         <serviceTask id="externalSystemCall" name="Enter holidays in external system"
-                     flowable:class="cn.jianchengwang.todo.lib.flowable.example.service.CallExternalSystemDelegate"/>
+                     flowable:class="todo.lib.flowable.example.service.CallExternalSystemDelegate"/>
         <sequenceFlow sourceRef="externalSystemCall" targetRef="holidayApprovedTask"/>
 
         <userTask id="holidayApprovedTask" name="Holiday approved" flowable:assignee="${employee}" />
         <sequenceFlow sourceRef="holidayApprovedTask" targetRef="approveEnd"/>
 
         <serviceTask id="sendRejectionMail" name="Send out rejection email"
-                     flowable:class="cn.jianchengwang.todo.lib.flowable.example.service.SendRejectionMail"/>
+                     flowable:class="todo.lib.flowable.example.service.SendRejectionMail"/>
         <sequenceFlow sourceRef="sendRejectionMail" targetRef="rejectEnd"/>
 
         <endEvent id="approveEnd"/>

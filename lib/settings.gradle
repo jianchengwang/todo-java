@@ -1,3 +1,5 @@
 rootProject.name = 'lib'
 include 'netty'
 include 'flowable'
+include 'flink'
+
