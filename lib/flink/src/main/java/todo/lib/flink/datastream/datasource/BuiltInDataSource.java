@@ -32,7 +32,7 @@ public class BuiltInDataSource {
     }
 
     public static DataStream<String> getDataStreamLog(StreamExecutionEnvironment env) {
-        String logPath = BuiltInDataSource.class.getClassLoader().getResource(".").getPath().replace("classes/java/main/", "") + "resources/main/test.log";
+        String logPath = BuiltInDataSource.class.getClassLoader().getResource(".").getPath().replace("classes/java/main/", "") + "resources/main/test.txt";
         DataStream<String> stream = env.readTextFile(logPath);
         return stream;
     }
