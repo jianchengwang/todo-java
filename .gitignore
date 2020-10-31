@@ -23,15 +23,12 @@
 hs_err_pid*
 
 
-.idea/*
-*/.idea
-*/.gradle
-*/gradle
-*/gradlew
-*/gradlew.bat
-*/build
-*/out
-*/*.iml
+**/.idea
+**/.gradle
+**/gradle
+**/gradlew
+**/gradlew.bat
+**/build
+**/out
+**/*.iml
 
-*/*/build
-*/*/out

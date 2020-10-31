@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>cn.jianchengwang.todo.springcloud.alibaba</groupId>
+        <groupId>todo.springcloud.alibaba</groupId>
         <artifactId>alibaba-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
