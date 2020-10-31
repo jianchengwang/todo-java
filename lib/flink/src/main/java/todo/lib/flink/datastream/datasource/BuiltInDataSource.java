@@ -12,6 +12,7 @@ import org.apache.flink.streaming.api.functions.source.FileProcessingMode;
 import org.apache.flink.types.Row;
 
 /**
+ * flink内置的数据源
  * @author wjc
  * @date 2020/10/30
  */
@@ -22,7 +23,7 @@ public class BuiltInDataSource {
         env.setParallelism(1);
         DataStream<String> stream = getDataStreamSocket(env);
         stream.map(i -> i).print();
-        env.execute("Flink BuiltInDataSource Test");
+        env.execute("Flink builtInDataSource test");
     }
 
     public static DataStream<String> getDataStreamBatch(StreamExecutionEnvironment env) {

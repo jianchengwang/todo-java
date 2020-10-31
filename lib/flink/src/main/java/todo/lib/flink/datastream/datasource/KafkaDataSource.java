@@ -8,6 +8,7 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import java.util.Properties;
 
 /**
+ * 第三方数据源，这里以kafka作为简单例子
  * @author wjc
  * @date 2020/10/30
  */
@@ -17,14 +18,16 @@ public class KafkaDataSource {
 
         Properties properties = new Properties();
         properties.setProperty("bootstrap.servers", "localhost:9092");
-        properties.setProperty("group.id", "test");
+        properties.setProperty("group.id", "groupA");
         properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.setProperty("auto.offset.reset", "latest");
+        FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<>("flink-test", new SimpleStringSchema(), properties);
+        consumer.setStartFromGroupOffsets();
         DataStream<String> dataStream = env
-                .addSource(new FlinkKafkaConsumer<>("flink-test", new SimpleStringSchema(), properties));
+                .addSource(consumer);
         dataStream.print();
 
-        env.execute("Flink kafka test");
+        env.execute("Flink kafka datasource test");
     }
 }

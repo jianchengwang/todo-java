@@ -36,6 +36,8 @@ dependencies {
     compile "org.apache.flink:flink-clients_${scalaBinaryVersion}:${flinkVersion}"
     compile "org.apache.flink:flink-connector-kafka_${scalaBinaryVersion}:${flinkVersion}"
     compile 'org.slf4j:slf4j-simple:1.7.21'
+
+    compile 'mysql:mysql-connector-java:5.1.34'
 }
 
 // make compileOnly dependencies available for tests:
