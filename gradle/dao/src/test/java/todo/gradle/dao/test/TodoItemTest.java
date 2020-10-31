@@ -1,7 +1,7 @@
-package cn.jianchengwang.todo.gradle.dao.test;
+package todo.gradle.dao.test;
 
-import cn.jianchengwang.todo.gradle.dao.TodoItemDao;
-import cn.jianchengwang.todo.gradle.model.TodoItem;
+import todo.gradle.dao.TodoItemDao;
+import todo.gradle.model.TodoItem;
 import org.junit.Test;
 
 public class TodoItemTest {

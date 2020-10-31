@@ -1,6 +1,6 @@
-package cn.jianchengwang.todo.gradle.dao;
+package todo.gradle.dao;
 
-import cn.jianchengwang.todo.gradle.model.TodoItem;
+import todo.gradle.model.TodoItem;
 
 import java.io.IOException;
 import java.io.InputStream;

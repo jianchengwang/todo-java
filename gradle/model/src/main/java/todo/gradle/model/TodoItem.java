@@ -1,4 +1,4 @@
-package cn.jianchengwang.todo.gradle.model;
+package todo.gradle.model;
 
 import lombok.Data;
 import lombok.NonNull;

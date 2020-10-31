@@ -1,7 +1,7 @@
-package cn.jianchengwang.todo.gradle.web;
+package todo.gradle.web;
 
-import cn.jianchengwang.todo.gradle.dao.TodoItemDao;
-import cn.jianchengwang.todo.gradle.model.TodoItem;
+import todo.gradle.dao.TodoItemDao;
+import todo.gradle.model.TodoItem;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
