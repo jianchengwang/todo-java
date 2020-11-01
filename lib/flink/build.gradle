@@ -26,7 +26,7 @@ configurations {
 ext {
     javaVersion = '1.8'
     flinkVersion = '1.11.2'
-    scalaBinaryVersion = '2.12'
+    scalaBinaryVersion = '2.11'
     slf4jVersion = '1.7.15'
     log4jVersion = '2.12.1'
 }
@@ -35,8 +35,11 @@ dependencies {
     compile "org.apache.flink:flink-streaming-java_${scalaBinaryVersion}:${flinkVersion}"
     compile "org.apache.flink:flink-clients_${scalaBinaryVersion}:${flinkVersion}"
     compile "org.apache.flink:flink-connector-kafka_${scalaBinaryVersion}:${flinkVersion}"
-    compile 'org.slf4j:slf4j-simple:1.7.21'
 
+    compile "org.apache.bahir:flink-connector-redis_${scalaBinaryVersion}:1.0"
+    compile "org.apache.flink:flink-connector-elasticsearch6_${scalaBinaryVersion}:${flinkVersion}"
+
+    compile 'org.slf4j:slf4j-simple:1.7.21'
     compile 'mysql:mysql-connector-java:5.1.34'
 }
 

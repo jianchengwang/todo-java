@@ -5,6 +5,7 @@ import lombok.Data;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
+import todo.lib.flink.common.model.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +17,7 @@ import java.sql.ResultSet;
  * @author wjc
  * @date 2020/10/31
  */
-public class CustomizeDataSource {
+public class CustomizeDataSourceJDBC {
 
     public static void main(String[] args) throws Exception {
 
@@ -86,13 +87,5 @@ public class CustomizeDataSource {
         SourceFromMySQL sourceFromMySQL = new SourceFromMySQL();
         env.addSource(sourceFromMySQL).print();
         env.execute("Flink customizeDataSource test");
-    }
-
-    @Data
-    @AllArgsConstructor
-    static
-    class User {
-        private int id;
-        private String name;
     }
 }

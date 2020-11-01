@@ -10,6 +10,10 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.FileProcessingMode;
 import org.apache.flink.types.Row;
+import todo.lib.flink.tool.FileTool;
+
+import java.io.File;
+import java.net.URL;
 
 /**
  * flink内置的数据源
@@ -21,29 +25,29 @@ public class BuiltInDataSource {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
-        DataStream<String> stream = getDataStreamSocket(env);
-        stream.map(i -> i).print();
+        DataStream<Row> stream = getDataStreamCsv(env);
+        stream.print();
         env.execute("Flink builtInDataSource test");
     }
 
-    public static DataStream<String> getDataStreamBatch(StreamExecutionEnvironment env) {
+    public static DataStream<String> getDataStreamElements(StreamExecutionEnvironment env) {
         String[] elementInput = new String[]{"hello Flink", "Second Line"};
         DataStream<String> stream = env.fromElements(elementInput);
         return stream;
     }
 
     public static DataStream<String> getDataStreamLog(StreamExecutionEnvironment env) {
-        String logPath = BuiltInDataSource.class.getClassLoader().getResource(".").getPath().replace("classes/java/main/", "") + "resources/main/test.txt";
+        String logPath = FileTool.getResourceFileUrl("test.txt");
         DataStream<String> stream = env.readTextFile(logPath);
         return stream;
     }
 
     public static DataStream<Row> getDataStreamCsv(StreamExecutionEnvironment env) {
-        String csvPath = BuiltInDataSource.class.getClassLoader().getResource(".").getPath().replace("classes/java/main/", "") + "resources/main/test.csv";
+        String csvPath = FileTool.getResourceFileUrl("test_user_info.csv");
         // 使用 RowCsvInputFormat 把每一行记录解析为一个 Row
         CsvInputFormat csvInput = new RowCsvInputFormat(
                 new Path(csvPath),                                        // 文件路径
-                new TypeInformation[]{Types.STRING, Types.STRING, Types.STRING},// 字段类型
+                new TypeInformation[]{Types.INT, Types.STRING},// 字段类型
                 "\n",                                             // 行分隔符
                 ",");                                            // 字段分隔符
         csvInput.setSkipFirstLineAsHeader(true);

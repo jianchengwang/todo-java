@@ -1,47 +1,14 @@
-[Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1)] INFO org.apache.flink.runtime.taskmanager.Task - Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1) (077297d2532d33c868f0ef8b27d1a107) switched from RUNNING to FINISHED.
-[Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1)] INFO org.apache.flink.runtime.taskmanager.Task - Freeing task resources for Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1) (077297d2532d33c868f0ef8b27d1a107).
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.taskexecutor.TaskExecutor - Un-registering task and sending final execution state FINISHED to JobManager for task Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1) 077297d2532d33c868f0ef8b27d1a107.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.executiongraph.ExecutionGraph - Source: Collection Source -> Map -> Sink: Print to Std. Out (1/1) (077297d2532d33c868f0ef8b27d1a107) switched from RUNNING to FINISHED.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.executiongraph.ExecutionGraph - Job Flink BuiltInDataSource Test (59481ba776818af73e74adaa2a487a48) switched from state RUNNING to FINISHED.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.checkpoint.CheckpointCoordinator - Stopping checkpoint coordinator for job 59481ba776818af73e74adaa2a487a48.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.checkpoint.StandaloneCompletedCheckpointStore - Shutting down
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.minicluster.MiniCluster - Shutting down Flink Mini Cluster
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint - Shutting down rest endpoint.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.TaskExecutor - Stopping TaskExecutor akka://flink/user/rpc/taskmanager_0.
-[flink-akka.actor.default-dispatcher-6] INFO org.apache.flink.runtime.dispatcher.StandaloneDispatcher - Job 59481ba776818af73e74adaa2a487a48 reached globally terminal state FINISHED.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.TaskExecutor - Close ResourceManager connection bf47fd7c0c865f03c99f62ce3dd8604f.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.TaskExecutor - Close JobManager connection for job 59481ba776818af73e74adaa2a487a48.
-[flink-akka.actor.default-dispatcher-6] INFO org.apache.flink.runtime.resourcemanager.StandaloneResourceManager - Closing TaskExecutor connection c2a32c04-8ecd-46d4-98ad-ed418381d8df because: The TaskExecutor is shutting down.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.jobmaster.JobMaster - Stopping the JobMaster for job Flink BuiltInDataSource Test(59481ba776818af73e74adaa2a487a48).
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.slot.TaskSlotTableImpl - Free slot TaskSlot(index:0, state:ALLOCATED, resource profile: ResourceProfile{managedMemory=128.000mb (134217728 bytes), networkMemory=64.000mb (67108864 bytes)}, allocationId: a2f81620247896c012e3a09357540971, jobId: 59481ba776818af73e74adaa2a487a48).
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.jobmaster.slotpool.SlotPoolImpl - Suspending SlotPool.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.jobmaster.JobMaster - Close ResourceManager connection bf47fd7c0c865f03c99f62ce3dd8604f: JobManager is shutting down..
-[flink-akka.actor.default-dispatcher-6] INFO org.apache.flink.runtime.resourcemanager.StandaloneResourceManager - Disconnect job manager bdfa803db22e033f68213a3853404270@akka://flink/user/rpc/jobmanager_3 for job 59481ba776818af73e74adaa2a487a48 from the resource manager.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.jobmaster.slotpool.SlotPoolImpl - Stopping SlotPool.
-[ForkJoinPool.commonPool-worker-4] INFO org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint - Removing cache directory C:\Users\JIANCH~1.WAN\AppData\Local\Temp\flink-web-ui
-[ForkJoinPool.commonPool-worker-4] INFO org.apache.flink.runtime.dispatcher.DispatcherRestEndpoint - Shut down complete.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.DefaultJobLeaderService - Stop job leader service.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.state.TaskExecutorLocalStateStoresManager - Shutting down TaskExecutorLocalStateStoresManager.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.resourcemanager.StandaloneResourceManager - Shut down cluster because application is in CANCELED, diagnostics DispatcherResourceManagerComponent has been closed..
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.entrypoint.component.DispatcherResourceManagerComponent - Closing components.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.dispatcher.runner.SessionDispatcherLeaderProcess - Stopping SessionDispatcherLeaderProcess.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.dispatcher.StandaloneDispatcher - Stopping dispatcher akka://flink/user/rpc/dispatcher_2.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.dispatcher.StandaloneDispatcher - Stopping all currently running jobs of dispatcher akka://flink/user/rpc/dispatcher_2.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.resourcemanager.slotmanager.SlotManagerImpl - Closing the SlotManager.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.resourcemanager.slotmanager.SlotManagerImpl - Suspending the SlotManager.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.io.disk.FileChannelManagerImpl - FileChannelManager removed spill file directory C:\Users\JIANCH~1.WAN\AppData\Local\Temp\flink-io-f0cf9d1e-b2a1-417a-936a-8e7fea271e44
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.io.network.NettyShuffleEnvironment - Shutting down the network environment and its components.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.rest.handler.legacy.backpressure.BackPressureRequestCoordinator - Shutting down back pressure request coordinator.
-[flink-akka.actor.default-dispatcher-2] INFO org.apache.flink.runtime.dispatcher.StandaloneDispatcher - Stopped dispatcher akka://flink/user/rpc/dispatcher_2.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.io.disk.FileChannelManagerImpl - FileChannelManager removed spill file directory C:\Users\JIANCH~1.WAN\AppData\Local\Temp\flink-netty-shuffle-e77ed4ee-4b05-4c04-a95b-8b14a249d2f0
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.KvStateService - Shutting down the kvState service and its components.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.DefaultJobLeaderService - Stop job leader service.
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.filecache.FileCache - removed file cache directory C:\Users\JIANCH~1.WAN\AppData\Local\Temp\flink-dist-cache-e2fe405d-04f7-49a4-8766-2333d64d9325
-[flink-akka.actor.default-dispatcher-3] INFO org.apache.flink.runtime.taskexecutor.TaskExecutor - Stopped TaskExecutor akka://flink/user/rpc/taskmanager_0.
-[AkkaRpcService-Supervisor-Termination-Future-Executor-thread-1] INFO org.apache.flink.runtime.rpc.akka.AkkaRpcService - Stopping Akka RPC service.
-[flink-metrics-2] INFO org.apache.flink.runtime.rpc.akka.AkkaRpcService - Stopping Akka RPC service.
-[flink-metrics-2] INFO org.apache.flink.runtime.rpc.akka.AkkaRpcService - Stopped Akka RPC service.
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.blob.PermanentBlobCache - Shutting down BLOB cache
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.blob.TransientBlobCache - Shutting down BLOB cache
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.blob.BlobServer - Stopped BLOB server at 0.0.0.0:51285
-[flink-akka.actor.default-dispatcher-4] INFO org.apache.flink.runtime.rpc.akka.AkkaRpcService - Stopped Akka RPC service.
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
