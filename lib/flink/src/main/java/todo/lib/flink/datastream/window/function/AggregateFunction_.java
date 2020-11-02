@@ -1,10 +1,11 @@
-package todo.lib.flink.datastream.transformation;
+package todo.lib.flink.datastream.window.function;
 
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import todo.lib.flink.tool.GenTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,7 @@ public class AggregateFunction_ {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 构建输入数据
-        List<Tuple2<String, Long>> data = new ArrayList<>();
-        Tuple2<String, Long> a = new Tuple2<>("first event", 1L);
-        Tuple2<String, Long> b = new Tuple2<>("second event", 2L);
-        data.add(a);
-        data.add(b);
+        List<Tuple2<String, Long>> data = GenTool.genCollection();
         DataStreamSource<Tuple2<String, Long>> input = env.fromCollection(data);
         input.keyBy(x -> x.f1)
                 .timeWindow(Time.seconds(10), Time.seconds(1))
