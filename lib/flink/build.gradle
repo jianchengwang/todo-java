@@ -39,6 +39,12 @@ dependencies {
     compile "org.apache.bahir:flink-connector-redis_${scalaBinaryVersion}:1.0"
     compile "org.apache.flink:flink-connector-elasticsearch6_${scalaBinaryVersion}:${flinkVersion}"
 
+    compileOnly "org.apache.flink:flink-table-api-java-bridge_${scalaBinaryVersion}:${flinkVersion}"
+    // 本地运行
+    compileOnly "org.apache.flink:flink-table-planner-blink_${scalaBinaryVersion}:${flinkVersion}"
+    // 自定义函数
+    compileOnly "org.apache.flink:flink-table-common:1.11"
+
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile 'mysql:mysql-connector-java:5.1.34'
 }
