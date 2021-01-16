@@ -5,6 +5,14 @@ spring:
   application:
     name: eureka-consumer-order
 
+  # 链路监控
+  zipkin:
+    base-url: http://122.51.87.176:9411
+    sleuth:
+      sampler:
+      #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
+
 # eureka
 eureka:
   client:

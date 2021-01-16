@@ -14,10 +14,21 @@
         <module>eureka-consumer-order80</module>
         <module>eureka-cloud-server7001</module>
         <module>eureka-cloud-server7002</module>
+        <module>eureka-gateway-server9527</module>
         <module>zookeeper-provider-payment8004</module>
         <module>zookeeper-consumer-order80</module>
         <module>consul-provider-payment8006</module>
         <module>consul-consumer-order80</module>
+        <module>eureka-consumer-feign-order80</module>
+        <module>eureka-provider-hystrix-payment8001</module>
+        <module>eureka-consumer-feign-hystrix-order80</module>
+        <module>hystrix-dashboard9001</module>
+        <module>eureka-config-server3344</module>
+        <module>eureka-config-client3355</module>
+        <module>eureka-config-client3366</module>
+        <module>stream-rabbitmq-provider8801</module>
+        <module>stream-rabbitmq-consumer8802</module>
+        <module>stream-rabbitmq-consumer8803</module>
     </modules>
 
     <packaging>pom</packaging>
