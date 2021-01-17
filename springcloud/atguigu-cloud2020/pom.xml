@@ -29,6 +29,14 @@
         <module>stream-rabbitmq-provider8801</module>
         <module>stream-rabbitmq-consumer8802</module>
         <module>stream-rabbitmq-consumer8803</module>
+        <module>nacos-provider-payment9001</module>
+        <module>nacos-provider-payment9002</module>
+        <module>nacos-consumer-order83</module>
+        <module>nacos-consumer-order84</module>
+        <module>nacos-sentinel-service8401</module>
+        <module>nacos-seata-order2001</module>
+        <module>nacos-seata-storage2002</module>
+        <module>nacos-seata-account2003</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -1,0 +1,20 @@
+server:
+  port: 9001
+# nacos配置
+spring:
+  application:
+    name: nacos-provider-payment
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 122.51.87.176:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: 122.51.87.176:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+#        group: DEV_GROUP # 分组
+#        namespace: .... # 命名空间
+
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# nacos-provider-payment-dev.yaml
+
+# nacos-provider-payment-test.yaml   ----> config.info
