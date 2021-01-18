@@ -1,0 +1,61 @@
+server:
+  port: 2003
+spring:
+  application:
+    name: nacos-seata-account
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:mysql://122.51.87.176:13306/seata_account?autoReconnect=true&useSSL=false&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Wjc123456
+
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      connection-init-sql: SET NAMES utf8mb4
+
+  cloud:
+    alibaba:
+      seata:
+        ## seata 自定义服务分组，因为我这把配置nacos,所以要与服务端config.txt中service.vgroup_mapping的后缀对应
+        tx-service-group: my_test_tx_group
+    nacos:
+      discovery:
+        server-addr: 122.51.87.176:8848
+
+mybatis-plus:
+  configuration:
+    # 驼峰下划线转换
+    map-underscore-to-camel-case: true
+    # 配置的缓存的全局开关
+    cache-enabled: true
+    # 延时加载的开关
+    lazy-loading-enabled: true
+    # 开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    multiple-result-sets-enabled: true
+    use-generated-keys: true
+    default-statement-timeout: 60
+    global-config:
+      db-config:
+        # 逻辑删除配置
+        logic-delete-value: 1
+        logic-not-delete-value: 0
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    io:
+      seata: info
