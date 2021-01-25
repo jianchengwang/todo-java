@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: si-mq-rabbitmq
+  rabbitmq:
+    host: 122.51.87.176
+    port: 5672
+    username: guest
+    password: guest

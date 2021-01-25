@@ -1,0 +1,33 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: si-cache-redis
+  datasource:
+    url: jdbc:mysql://122.51.87.176:13306/test?autoReconnect=true&useSSL=false&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Wjc123456
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      connection-init-sql: SET NAMES utf8mb4
+  redis:
+    host: 122.51.87.176
+    port: 16379
+    password: Wjc123456
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 日志配置
+logging:
+  level:
+    info.jianchengwang.todo.springboot2.si.cache: DEBUG
