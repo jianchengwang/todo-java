@@ -14,7 +14,7 @@ public class MethodExample {
         Method[] methods = c.getMethods();
 
         Method method1 = c.getMethod("setName", new Class[]{String.class});
-        Method method2 = c.getMethod("getName", null);
+        Method method2 = c.getMethod("getName");
 
         Class[] parameterTypes = method1.getParameterTypes();
         Class returnType = method2.getReturnType();
