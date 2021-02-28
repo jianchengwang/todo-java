@@ -1,0 +1,5 @@
+dependencies {
+    compile 'org.elasticsearch.client:elasticsearch-rest-client:7.11.1'
+    compile 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.11.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+}
