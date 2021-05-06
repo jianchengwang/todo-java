@@ -1,4 +1,4 @@
-package todo.java.bigdata.flink.demo.java.eample.hotitems;
+package todo.java.bigdata.flink.demo.java.example.hotitems;
 
 import lombok.Data;
 import org.apache.flink.api.common.functions.AggregateFunction;
