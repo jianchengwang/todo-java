@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>info.jianchengwang</groupId>
+  <artifactId>opencv.imageSimilarity</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+<!--  <repositories>-->
+<!--    <repository>-->
+<!--		<id>mvnrepository</id>-->
+<!--        <name>mvnrepository</name>-->
+<!--        <url>https://repo1.maven.org/maven2/</url>-->
+<!--        <layout>default</layout>-->
+<!--        <releases>-->
+<!--            <enabled>true</enabled>-->
+<!--        </releases>-->
+<!--        <snapshots>-->
+<!--            <enabled>false</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+<!-- </repositories>-->
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.16.2</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org</groupId>-->
+<!--            <artifactId>opencv</artifactId>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}\src\main\resources\lib\opencv\opencv-451.jar</systemPath>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.1-2</version>
+        </dependency>
+ </dependencies>
+</project>
