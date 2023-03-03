@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 
 @SpringBootApplication
-@ComponentScans(value = { @ComponentScan(value = "com.example.exclude.controller") })
+//@ComponentScans(value = { @ComponentScan(value = "com.example.exclude.controller") })
 public class SpringCommonMistakesApplication {
 
     public static void main(String[] args) {

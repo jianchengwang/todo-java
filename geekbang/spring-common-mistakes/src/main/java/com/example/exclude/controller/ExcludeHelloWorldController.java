@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023/2/28
  */
 @RestController
-public class HelloWorldController {
-    @RequestMapping(path = "hi", method = RequestMethod.GET)
+public class ExcludeHelloWorldController {
+    @RequestMapping(path = "excludeHi", method = RequestMethod.GET)
     public String hi(){
-        return "helloworld";
+        return "excludeHi";
     };
 }
