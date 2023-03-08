@@ -9,10 +9,14 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LightMgrService7 {
-    @Autowired
+//    @Autowired
+//    private LightService7 lightService;
+
+    // 构造器注入
     private LightService7 lightService;
 
-    public LightMgrService7() {
+    public LightMgrService7(LightService7 lightService) {
+        this.lightService = lightService;
         lightService.check();
     }
 }
