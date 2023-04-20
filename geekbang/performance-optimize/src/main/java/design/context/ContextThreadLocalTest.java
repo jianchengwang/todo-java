@@ -1,16 +1,15 @@
-package design;
+package design.context;
 
 import java.util.stream.IntStream;
 
 /**
  * @author jianchengwang
- * @date 2023/4/19
+ * @date 2023/4/20
  */
 
-public class ContextTest {
-
+public class ContextThreadLocalTest {
     // 上下文类
-    public class Context {
+    public static class Context {
         private String name;
         private long id;
 
@@ -31,13 +30,37 @@ public class ContextTest {
         }
     }
 
+    // 复制上下文到ThreadLocal中
+    public final static class ActionContext {
+
+        private static final ThreadLocal<Context> threadLocal = new ThreadLocal<Context>() {
+            @Override
+            protected Context initialValue() {
+                return new Context();
+            }
+        };
+
+        public static ActionContext getActionContext() {
+            return ContextHolder.actionContext;
+        }
+
+        public Context getContext() {
+            return threadLocal.get();
+        }
+
+        // 获取ActionContext单例
+        public static class ContextHolder {
+            private final static ActionContext actionContext = new ActionContext();
+        }
+    }
+
     // 设置上下文名字
     public class QueryNameAction {
-        public void execute(Context context) {
+        public void execute() {
             try {
                 Thread.sleep(1000L);
                 String name = Thread.currentThread().getName();
-                context.setName(name);
+                ActionContext.getActionContext().getContext().setName(name);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -46,11 +69,11 @@ public class ContextTest {
 
     // 设置上下文ID
     public class QueryIdAction {
-        public void execute(Context context) {
+        public void execute() {
             try {
                 Thread.sleep(1000L);
                 long id = Thread.currentThread().getId();
-                context.setId(id);
+                ActionContext.getActionContext().getContext().setId(id);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -59,19 +82,17 @@ public class ContextTest {
 
     // 执行方法
     public class ExecutionTask implements Runnable {
-
         private QueryNameAction queryNameAction = new QueryNameAction();
         private QueryIdAction queryIdAction = new QueryIdAction();
 
         @Override
         public void run() {
-            final Context context = new Context();
-            queryNameAction.execute(context);
+            queryNameAction.execute();//设置线程名
             System.out.println("The name query successful");
-            queryIdAction.execute(context);
+            queryIdAction.execute();//设置线程ID
             System.out.println("The id query successful");
 
-            System.out.println("The Name is " + context.getName() + " and id " + context.getId());
+            System.out.println("The Name is " + ActionContext.getActionContext().getContext().getName() + " and id " + ActionContext.getActionContext().getContext().getId());
         }
     }
 

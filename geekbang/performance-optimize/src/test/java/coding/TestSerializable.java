@@ -1,13 +1,12 @@
 package coding;
 
 import model.Singleton;
-import model.Student;
+import design.prototype.Student;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.HashSet;
 import java.util.Set;

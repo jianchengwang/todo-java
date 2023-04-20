@@ -1,7 +1,6 @@
 package coding;
 
-import lombok.Data;
-import model.Student;
+import design.prototype.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
