@@ -1,10 +1,7 @@
-package coding;
-
-import org.junit.jupiter.api.Test;
+package coding.collection;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  *
@@ -23,15 +20,17 @@ public class TestList {
      *  * ArrayList 为了避免这些没有存储数据的内存空间被序列化，内部提供了两个私有方法 writeObject 以及 readObject 来自我完成序列化与反序列化，
      *  * 从而在序列化与反序列化数组时节省了空间和时间。因此使用 transient 修饰数组，是防止对象数组被其他外部方法序列化。
      */
-    @Test
     public void test1() {
         ArrayList list = new ArrayList();
         list.add(1);
     }
 
-    @Test
     public void test2() {
         LinkedList list = new LinkedList();
         list.add(1);
+    }
+
+    public static void main(String[] args) {
+
     }
 }

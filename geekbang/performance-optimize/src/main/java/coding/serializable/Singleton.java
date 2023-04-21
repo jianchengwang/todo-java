@@ -1,6 +1,4 @@
-package model;
-
-import coding.TestSerializable;
+package coding.serializable;
 
 import java.io.Serializable;
 

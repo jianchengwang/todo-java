@@ -1,6 +1,4 @@
-package coding;
-
-import org.junit.jupiter.api.Test;
+package coding.collection;
 
 import java.util.HashMap;
 
@@ -10,7 +8,6 @@ import java.util.HashMap;
  */
 public class TestMap {
 
-    @Test
     public void test1() {
         HashMap<String, String> map1 = new HashMap<>();
     }

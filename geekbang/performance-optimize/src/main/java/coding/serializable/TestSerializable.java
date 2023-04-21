@@ -1,8 +1,4 @@
-package coding;
-
-import model.Singleton;
-import design.prototype.Student;
-import org.junit.jupiter.api.Test;
+package coding.serializable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,7 +12,6 @@ import java.util.Set;
  * @date 2023/4/18
  */
 public class TestSerializable {
-    @Test
     public void test1() {
         Set root = new HashSet();
         Set s1 = root;
@@ -34,7 +29,6 @@ public class TestSerializable {
         }
     }
 
-    @Test
     public void test2() throws IOException {
         Student student = new Student();
         student.setHeight(178);
@@ -58,7 +52,6 @@ public class TestSerializable {
 
     }
 
-    @Test
     public void test3() throws IOException {
         Student student = new Student();
         student.setHeight(178);
@@ -95,7 +88,6 @@ public class TestSerializable {
         System.out.print("ByteBuffer 序列化时间：" + (endTime1 - startTime1)+ "\n");
     }
 
-    @Test
     public void test4() {
         System.out.println(Singleton.getInstance() == Singleton.getInstance());
     }

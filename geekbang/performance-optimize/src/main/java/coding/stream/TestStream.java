@@ -1,8 +1,6 @@
-package coding;
+package coding.stream;
 
-import design.prototype.Student;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import coding.serializable.Student;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -16,7 +14,6 @@ public class TestStream {
 
     private List<Student> studentsList;
 
-    @BeforeEach
     public void init() {
         studentsList = List.of(
                 new Student(168,"man"),
@@ -24,7 +21,6 @@ public class TestStream {
         );
     }
 
-    @Test
     public void test1() {
 
         Map<String, List<Student>> stuMap = new HashMap<>();
@@ -42,7 +38,6 @@ public class TestStream {
 
     }
 
-    @Test
     public void test2() {
 
         Map<String, List<Student>> stuMap = studentsList
@@ -51,7 +46,6 @@ public class TestStream {
                 .collect(Collectors.groupingBy(Student ::getSex));
     }
 
-    @Test
     public void test3() {
 
 
@@ -64,7 +58,6 @@ public class TestStream {
                 .toString();
     }
 
-    @Test
     public void test4() {
 
 //使用一个容器装载100个数字，通过Stream并行处理的方式将容器中为单数的数字转移到容器parallelList

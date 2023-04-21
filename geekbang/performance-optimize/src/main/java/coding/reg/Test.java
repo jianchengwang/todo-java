@@ -1,16 +1,14 @@
-package coding;
-
-import org.junit.jupiter.api.Test;
+package coding.reg;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * @author jianchengwang
- * @date 2023/4/17
+ * @date 2023/4/21
  */
-public class TestReg {
-    @Test
+public class Test {
+
     public void test1() {
         String text = "<input high=\"20\" weight=\"70\">test</input>";
         String reg="(<input.*?>)(.*?)(</input>)";
@@ -24,7 +22,6 @@ public class TestReg {
         }
     }
 
-    @Test
     public void test2() {
 
         String text = "<input high=\"20\" weight=\"70\">test</input>";
@@ -35,5 +32,11 @@ public class TestReg {
             System.out.println(m.group(0));//整个匹配到的内容
             System.out.println(m.group(1));//(.*?)
         }
+    }
+
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.test1();
+        test.test2();
     }
 }

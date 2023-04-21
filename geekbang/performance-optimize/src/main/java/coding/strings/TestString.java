@@ -1,12 +1,7 @@
-package coding;
-
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertSame;
+package coding.strings;
 
 public class TestString {
 
-    @Test
     public void test() {
         String str1= "ab" + "cd" + "ef";
         String str = "abcdef";
@@ -15,7 +10,6 @@ public class TestString {
         }
     }
 
-    @Test
     public void test2() {
 
         String a = "abc";
@@ -25,7 +19,6 @@ public class TestString {
         }
     }
 
-    @Test
     public void test3() {
 
         String a = "a,b,c";
@@ -35,7 +28,6 @@ public class TestString {
         //第二种为传入的参数长度为2，第一个字符是反斜杠，并且第二个字符不是ASCII数字或ASCII字母的情况下，不会使用正则表达式。
     }
 
-    @Test
     public void test4() {
 
         String str1= "abc";
@@ -46,7 +38,6 @@ public class TestString {
         System.out.println(str1==str3);
     }
 
-    @Test
     public void test5() {
         String s1 = new String("1")+new String("1");
         s1.intern();
