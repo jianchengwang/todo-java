@@ -1,4 +1,4 @@
-package multithread;
+package core.concurrency.multithread;
 
 /**
  * @author jianchengwang
