@@ -1,0 +1,6 @@
+当需要批量提交异步任务的时候建议你使用 CompletionService。CompletionService 将线程池 Executor 和阻塞队列 BlockingQueue 的功能融合在了一起，
+能够让批量异步任务的管理更简单。除此之外，CompletionService 能够让异步任务的执行结果有序化，
+先执行完的先进入阻塞队列，利用这个特性，你可以轻松实现后续处理的有序性，避免无谓的等待，
+同时还可以快速实现诸如 Forking Cluster 这样的需求。
+CompletionService 的实现类 ExecutorCompletionService，需要你自己创建线程池，虽看上去有些啰嗦，
+但好处是你可以让多个 ExecutorCompletionService 的线程池隔离， 这种隔离性能避免几个特别耗时的任务拖垮整个应用的风险。
